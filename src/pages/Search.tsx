@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
+import Wrapper from "../sections/Wrapper";
+import { useAppDispatch } from "../app/hooks";
+import { getInitialPokemonData } from "../app/reducers/getinitialPokemonData";
 
 function Search() {
+    const dispatch = useAppDispatch();
+    useEffect(() =>{
+        dispatch(getInitialPokemonData())
+    }, [dispatch]);
     return(
         <div>
-
+            Search
         </div>
     )
     
 }
-export default Search
+export default Wrapper(Search)
